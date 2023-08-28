@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="904.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="904.0" fitWidth="1700.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assest/img.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="117.0" layoutY="31.0" prefHeight="44.0" prefWidth="421.0" text="Reservation Information">
+         <font>
+            <Font name="Times New Roman Bold" size="39.0" />
+         </font>
+      </Label>
+      <JFXTextField layoutX="74.0" layoutY="167.0" prefHeight="32.0" prefWidth="315.0" promptText="Reservation ID">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField layoutX="483.0" layoutY="167.0" prefHeight="32.0" prefWidth="315.0" promptText="Student ID">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField layoutX="876.0" layoutY="167.0" prefHeight="37.0" prefWidth="315.0" promptText="Room Type ID">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField layoutX="74.0" layoutY="264.0" prefHeight="32.0" prefWidth="315.0" promptText="Date">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox layoutX="483.0" layoutY="270.0" prefHeight="31.0" prefWidth="277.0" promptText="Status" visibleRowCount="1">
+         <stylesheets>
+            <URL value="@assest/css/studentComboBox.css" />
+            <URL value="@assest/css/studentComboBox.css" />
+         </stylesheets>
+      </JFXComboBox>
+      <JFXButton layoutX="1169.0" layoutY="334.0" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #EBE76C;" stylesheets="@assest/css/studentForm.css" text="Save">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <Line endX="-429.0" endY="-411.0" layoutX="897.0" layoutY="486.0" startX="-783.0" startY="-411.0" />
+      <ImageView fitHeight="50.0" fitWidth="59.0" layoutX="49.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assest/img1.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="68.0" layoutY="357.0" prefHeight="530.0" prefWidth="916.0">
+         <columns>
+            <TableColumn prefWidth="172.0" text="Reservation ID" />
+            <TableColumn prefWidth="180.0" text="Date" />
+            <TableColumn prefWidth="190.0" text="Student ID" />
+            <TableColumn prefWidth="185.0" text="Room Type ID" />
+            <TableColumn prefWidth="188.0" text="Status" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="1335.0" layoutY="334.0" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #189A2E;" stylesheets="@assest/css/studentForm.css" text="Update">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1492.0" layoutY="334.0" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #D71313;" stylesheets="@assest/css/studentForm.css" text="Delete">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField layoutX="864.0" layoutY="267.0" prefHeight="37.0" prefWidth="315.0" promptText="Rooms Availabele Qty">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>
