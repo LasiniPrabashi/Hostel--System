@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import java.util.List;
 
 public interface StudentDAO extends CrudDAO<Student> {
+
     List<String> getStIds();
 
 }

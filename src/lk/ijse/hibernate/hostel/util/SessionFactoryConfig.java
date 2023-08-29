@@ -44,4 +44,6 @@ public class SessionFactoryConfig {
         SessionFactory sessionFactory = metadata.buildSessionFactory();
         return sessionFactory.openSession();
     }
+
+
 }
