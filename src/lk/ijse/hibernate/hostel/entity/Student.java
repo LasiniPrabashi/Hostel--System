@@ -1,10 +1,8 @@
 package lk.ijse.hibernate.hostel.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -23,6 +21,7 @@ public class Student {
     private String dob;
     @Column(name = "gender")
     private String gender;
+
 
     public Student(String studentId, String name, String address, String contactNo, String dob, String gender) {
         this.studentId = studentId;

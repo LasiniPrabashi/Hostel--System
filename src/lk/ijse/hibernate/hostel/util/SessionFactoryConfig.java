@@ -35,7 +35,7 @@ public class SessionFactoryConfig {
 
         Metadata metadata = new MetadataSources(serviceRegistry)
                 .addAnnotatedClass(Student.class)
-                .addAnnotatedClass(Room.class)
+               // .addAnnotatedClass(Room.class)
                 .addAnnotatedClass(Reservation.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
