@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="921.0" prefWidth="1629.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.LoginFormController">
+   <children>
+      <AnchorPane prefHeight="921.0" prefWidth="1644.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="735.0" fitWidth="701.0" layoutX="115.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assest/main.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="285.0" layoutY="357.0" prefHeight="48.0" prefWidth="139.0" text="Login">
+               <font>
+                  <Font name="Times New Roman Bold" size="42.0" />
+               </font>
+            </Label>
+            <JFXTextField layoutX="337.0" layoutY="439.0" prefHeight="41.0" prefWidth="259.0" promptText="Username ">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </JFXTextField>
+            <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="285.0" layoutY="439.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assest/username.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="48.0" fitWidth="41.0" layoutX="285.0" layoutY="521.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assest/password.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="390.0" layoutY="605.0" onAction="#LoginOnAction" prefHeight="31.0" prefWidth="151.0" text="Sing In">
+               <font>
+                  <Font name="Times New Roman Bold" size="24.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="881.0" layoutY="129.0" prefHeight="93.0" prefWidth="338.0" text="WELCOME" textFill="#f5e6e6">
+               <font>
+                  <Font name="Times New Roman Bold" size="60.0" />
+               </font>
+            </Label>
+            <Label layoutX="1129.0" layoutY="222.0" prefHeight="93.0" prefWidth="293.0" text="D24 Hostel " textFill="#f2eded">
+               <font>
+                  <Font name="Times New Roman Bold" size="50.0" />
+               </font>
+            </Label>
+            <Label layoutX="914.0" layoutY="447.0" prefHeight="45.0" prefWidth="520.0" text="A Hostel Locate  in Colombo" textFill="#f5f3f3">
+               <font>
+                  <Font name="Times New Roman Bold" size="42.0" />
+               </font>
+            </Label>
+            <Text fill="#d7d2d2" layoutX="914.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We believe that hostelling is not just about having a place to say. it's about having fun fun, experienceing different cultures and netting new people, whilst loving and respecting our environment." wrappingWidth="519.9999943375587">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="41.0" fitWidth="32.0" layoutX="564.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assest/icon-hide.png" />
+               </image>
+            </ImageView>
+            <JFXPasswordField layoutX="337.0" layoutY="526.0" prefHeight="31.0" prefWidth="259.0" promptText="Password">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </JFXPasswordField>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
