@@ -64,7 +64,7 @@
             <Image url="@assest/img2.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblStudent" layoutX="68.0" layoutY="327.0" prefHeight="560.0" prefWidth="1059.0">
+      <TableView fx:id="tblStudent" layoutX="68.0" layoutY="327.0" onMouseClicked="#OnActionMouseClicked" prefHeight="560.0" prefWidth="1059.0">
         <columns>
           <TableColumn fx:id="colstId" prefWidth="152.0" text="Student_ID" />
           <TableColumn fx:id="colStName" prefWidth="177.0" text="Student Name" />

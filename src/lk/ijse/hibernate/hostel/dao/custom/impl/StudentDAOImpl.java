@@ -33,11 +33,21 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student getObject(String id) throws Exception {
-        return null;
+        return session.get(Student.class,id);
+    }
+
+    public List<String> getStIds() {
+        String hql = "SELECT id from Student ";
+        Query<String> query=session.createQuery (hql);
+        List<String> results = query.list();
+        session.close();
+        return results;
+
     }
 
     @Override
     public void setSession(Session session) {
-
+             this.session=session;
     }
+
 }
