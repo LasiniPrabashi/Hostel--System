@@ -3,22 +3,31 @@ package lk.ijse.hibernate.hostel.controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lk.ijse.hibernate.hostel.bo.BOFactory;
 import lk.ijse.hibernate.hostel.bo.custom.StudentBO;
 import lk.ijse.hibernate.hostel.dto.StudentDTO;
+import lk.ijse.hibernate.hostel.util.Navigation;
 import lk.ijse.hibernate.hostel.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
@@ -40,6 +49,8 @@ public class StudentFormController implements Initializable {
     public TableColumn colContact;
     public TableColumn colDob;
     public TableColumn colGender;
+    private JFXPanel root;
+
 
     private Session session;
     private StudentBO studentBO = (StudentBO) BOFactory.getBO(BOFactory.BOTypes.STUDENT);
@@ -227,7 +238,17 @@ public class StudentFormController implements Initializable {
     }
 
 
+    public void navigateToHome(MouseEvent mouseEvent) throws IOException {
+//        URL resource = this.getClass().getResource("/lk/ijse/hibernate/hostel/view/DashboardForm.fxml");
+//        Parent root = FXMLLoader.load(resource);
+//        Scene scene = new Scene(root);
+//        Stage primaryStage = (Stage) (this.root.getScene().getWindow());
+//        primaryStage.setScene(scene);
+//        primaryStage.centerOnScreen();
+//        Platform.runLater(() -> primaryStage.sizeToScene());
 
+        Navigation.switchNavigation("DashboardForm.fxml",mouseEvent);
+    }
 }
 
 

@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.hibernate.hostel.bo.BOFactory;
 import lk.ijse.hibernate.hostel.bo.custom.RoomBO;
 import lk.ijse.hibernate.hostel.dto.RoomDTO;
@@ -37,16 +38,16 @@ public class RoomFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-             setTableRoom();
-             loadAllRoom();
-             setRoomID();
+        setTableRoom ();
+        loadAllRoom ();
+        setRoomID ();
     }
 
     public boolean checkduplicate() {
         String roomId = txtRoomId.getText ();
         List<RoomDTO> allRooms = roomBO.loadAll ();
-        for (RoomDTO roomDTO : allRooms) {
-            if (roomId.equals (roomDTO.getRoomID ())) {
+        for (RoomDTO r : allRooms) {
+            if (roomId.equals (r.getRoomID ())) {
                 new Alert (Alert.AlertType.ERROR, "This ID Already Have").show ();
                 return false;
             }
@@ -55,64 +56,159 @@ public class RoomFormController implements Initializable {
     }
 
     public void onActionSave(ActionEvent actionEvent) {
-        int qty = Integer.parseInt(txtQty.getText());
-        String roomId = txtRoomId.getText();
-        String roomType = txtRoomType.getText();
-        String keyMoney = txtKeymoney.getText();
 
-        RoomDTO roomDTO = new RoomDTO(
-                roomId,roomType,keyMoney,qty
+
+        if(checkValidation ()){
+            int qty = Integer.parseInt (txtQty.getText ());
+            String roomId = txtRoomId.getText ();
+            String roomType = txtRoomType.getText ();
+            String keyMoney = txtKeymoney.getText ();
+
+            RoomDTO roomDTO = new RoomDTO (
+                    roomId,
+                    roomType,
+                    keyMoney,
+                    qty
+            );
+
+            try {
+
+                List<RoomDTO> allRooms = roomBO.loadAll ();
+
+                if (checkduplicate ()) {
+                    if (checkValidation ()){
+                        roomBO.saveRoom (roomDTO);
+                        loadAllRoom ();
+                        setRoomID ();
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace ();
+            }
+        }
+
+    }
+
+    public void onActionDelete(ActionEvent actionEvent) {
+        int qty = Integer.parseInt (txtQty.getText ());
+        RoomDTO roomDTO = new RoomDTO (
+                txtRoomId.getText (),
+                txtRoomType.getText (),
+                txtKeymoney.getText (),
+                qty
         );
 
-        try {
-           List<RoomDTO> allRooms = roomBO.loadAll();
+        boolean isDeleted = roomBO.deleteRoom (roomDTO);
 
-            if(checkduplicate()){
-                if(checkValidation()){
-                    roomBO.saveRoom(roomDTO);
-                    loadAllRoom();
-                    setRoomID();
-                }
-            }
-        }catch (Exception e){
-            e.printStackTrace();
+        if (isDeleted) {
+            new Alert (Alert.AlertType.INFORMATION, "Room Delete Succuss").show ();
+            tblRoom.getItems ().clear ();
+            clearData ();
+            loadAllRoom ();
+            setRoomID ();
+        } else {
+            new Alert (Alert.AlertType.ERROR, "Something went Wrong").show ();
         }
 
     }
 
     public void onActionUpdate(ActionEvent actionEvent) {
-        int qty = Integer.parseInt(txtQty.getText());
-        RoomDTO roomDTO = new RoomDTO(
-                txtRoomId.getText(),
-                txtKeymoney.getText(),
-                txtRoomType.getText(),
+        int qty = Integer.parseInt (txtQty.getText ());
+        RoomDTO roomDTO = new RoomDTO (
+                txtRoomId.getText (),
+                txtRoomType.getText (),
+                txtKeymoney.getText (),
                 qty
         );
 
-        boolean isDeleted = roomBO.deleteRoom(roomDTO);
+        boolean isUpdate = roomBO.updateRoom (roomDTO);
 
-        if(isDeleted){
-            new Alert(Alert.AlertType.INFORMATION,"Room DElete Succuss").show();
-            tblRoom.getItems().clear();
-            clearData();
-            loadAllRoom();
-            setRoomID();
-        }else {
-            new Alert(Alert.AlertType.ERROR,"Something went Wrong").show();
+        if (isUpdate) {
+            new Alert (Alert.AlertType.INFORMATION, "Student Update Succuss").show ();
+            tblRoom.getItems ().clear ();
+            clearData ();
+            loadAllRoom ();
+            setRoomID ();
+        } else {
+            new Alert (Alert.AlertType.ERROR, "Something went Wrong").show ();
         }
+    }
+
+    public void clearData() {
+        txtRoomId.clear ();
+        txtRoomType.clear ();
+        txtKeymoney.clear ();
+        txtQty.clear ();
+    }
+
+    public void setTable() {
+        colRoomId.setCellValueFactory (new PropertyValueFactory<> ("roomId"));
+        colRoomType.setCellValueFactory (new PropertyValueFactory<> ("type"));
+        colKeyMoney.setCellValueFactory (new PropertyValueFactory<> ("keyMoney"));
+        colQty.setCellValueFactory (new PropertyValueFactory<> ("qty"));
 
     }
 
-    private void setRoomID() {
-        String roomID=nextRoomId ();
-        txtRoomId.setText (roomID);
+    public void loadAllRoom() {
+
+        try {
+            List allRoom = roomBO.loadAll ();
+            ObservableList observableList = FXCollections.observableArrayList (allRoom);
+            tblRoom.setItems (observableList);
+
+        } catch (Exception e) {
+            System.out.println (e);
+        }
     }
 
-    private String nextRoomId() {
+    public void setTableRoom() {
+        colRoomId.setCellValueFactory (new PropertyValueFactory<> ("roomID"));
+        colRoomType.setCellValueFactory (new PropertyValueFactory<> ("type"));
+        colKeyMoney.setCellValueFactory (new PropertyValueFactory<> ("keyMoney"));
+        colQty.setCellValueFactory (new PropertyValueFactory<> ("qty"));
+    }
+
+    public void OnActionMiuseClickedRoom(MouseEvent mouseEvent) {
+        int index = tblRoom.getSelectionModel ().getSelectedIndex ();
+        String roomId = colRoomId.getCellData (index).toString ();//select Column value
+
+        try {
+            RoomDTO dto = roomBO.getRoom (roomId);
+            txtRoomId.setText (dto.getRoomID ());
+            txtRoomType.setText (dto.getType ());
+            txtKeymoney.setText (dto.getKeyMoney ());
+            txtQty.setText (String.valueOf (dto.getQty ()));
+        } catch (Exception e) {
+            System.out.println (e);
+        }
+    }
+
+    private boolean checkValidation() {
+        String typeText = txtRoomType.getText ();
+        String moneyText = txtKeymoney.getText ();
+        String qtyText = txtQty.getText ();
+
+
+        if (!moneyText.matches("^[0-9]+[.]?[0-9]*$")) {
+            new Alert (Alert.AlertType.ERROR, "invalid key money").show ();
+            txtKeymoney.requestFocus ();
+            return false;
+        } else if (!qtyText.matches("^\\d+$")) {
+            //} else if (!qtyText.matches("[0-9]")) {
+            new Alert(Alert.AlertType.ERROR, "Invalid qty").show();
+            txtQty.requestFocus();
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    public String nextRoomId() {
         Session session = SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction = session.beginTransaction ();
 
-        Query query = session.createQuery ("select roomTypeId from Room order by roomTypeId desc");
+        Query query = session.createQuery ("select roomTypeId from Room order by  roomTypeId desc");
 
         String nextId = "R001";
 
@@ -138,77 +234,10 @@ public class RoomFormController implements Initializable {
         }
     }
 
-    public void onActionDelete(ActionEvent actionEvent) {
-        int qty = Integer.parseInt (txtQty.getText ());
-        RoomDTO roomDTO = new RoomDTO (
-                txtRoomId.getText (),
-                txtRoomType.getText (),
-                txtKeymoney.getText (),
-                qty
-        );
-
-        boolean isDeleted = roomBO.deleteRoom (roomDTO);
-
-        if (isDeleted) {
-            new Alert(Alert.AlertType.INFORMATION, "Room Delete Succuss").show ();
-            tblRoom.getItems ().clear ();
-            clearData ();
-            loadAllRoom ();
-            setRoomID ();
-        } else {
-            new Alert (Alert.AlertType.ERROR, "Something went Wrong").show ();
-        }
-
+    public void setRoomID(){
+        String roomID=nextRoomId ();
+        txtRoomId.setText (roomID);
     }
-
-    private void loadAllRoom() {
-        try {
-            List allRoom =roomBO.loadAll();
-            ObservableList observableList = FXCollections.observableList(allRoom);
-            tblRoom.setItems(observableList);
-
-        }catch (Exception e){
-            System.out.println(e);
-        }
-
-    }
-
-    private boolean checkValidation() {
-        String typeText = txtRoomType.getText ();
-        String moneyText = txtKeymoney.getText ();
-        String qtyText = txtQty.getText ();
-
-
-        if (!moneyText.matches("^[0-9]+[.]?[0-9]*$")) {
-            new Alert (Alert.AlertType.ERROR, "invalid key money").show ();
-            txtKeymoney.requestFocus ();
-            return false;
-        } else if (!qtyText.matches("^\\d+$")) {
-            //} else if (!qtyText.matches("[0-9]")) {
-            new Alert(Alert.AlertType.ERROR, "Invalid qty").show();
-            txtQty.requestFocus();
-            return false;
-        }else {
-            return true;
-        }
-    }
-
-    private void clearData() {
-        txtRoomId.clear();
-        txtRoomType.clear();
-        txtKeymoney.clear();
-        txtQty.clear();
-
-
-    }
-
-    private void setTableRoom() {
-        colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomTypeId"));
-        colRoomType.setCellValueFactory(new PropertyValueFactory<>("type"));
-        colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-    }
-
 
 
 }
