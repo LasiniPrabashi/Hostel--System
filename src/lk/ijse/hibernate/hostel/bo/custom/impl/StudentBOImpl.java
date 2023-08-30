@@ -1,6 +1,5 @@
 package lk.ijse.hibernate.hostel.bo.custom.impl;
 
-import lk.ijse.hibernate.hostel.bo.SuperBo;
 import lk.ijse.hibernate.hostel.bo.custom.StudentBO;
 import lk.ijse.hibernate.hostel.dao.DAOFactory;
 import lk.ijse.hibernate.hostel.dao.custom.StudentDAO;

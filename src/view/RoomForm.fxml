@@ -72,5 +72,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="82.0" fitWidth="70.0" layoutX="1540.0" layoutY="48.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assest/img4.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

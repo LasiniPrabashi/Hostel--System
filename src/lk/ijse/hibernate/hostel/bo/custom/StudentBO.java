@@ -1,11 +1,11 @@
 package lk.ijse.hibernate.hostel.bo.custom;
 
-import lk.ijse.hibernate.hostel.bo.SuperBo;
+import lk.ijse.hibernate.hostel.bo.SuperBO;
 import lk.ijse.hibernate.hostel.dto.StudentDTO;
 
 import java.util.List;
 
-public interface StudentBO extends SuperBo {
+public interface StudentBO extends SuperBO {
 
      List<StudentDTO> loadAll();
     boolean saveStudent(StudentDTO studentDTO);

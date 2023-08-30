@@ -1,5 +1,6 @@
 package lk.ijse.hibernate.hostel.bo;
 
+import lk.ijse.hibernate.hostel.bo.custom.impl.RoomBOImpl;
 import lk.ijse.hibernate.hostel.bo.custom.impl.StudentBOImpl;
 
 public class BOFactory {
@@ -18,12 +19,12 @@ public class BOFactory {
         STUDENT,ROOM,USER,RESERVATION
     }
 
-    public static StudentBOImpl getBO(BOTypes boTypes){
+    public static SuperBO getBO(BOTypes boTypes){
         switch (boTypes){
             case STUDENT:
-                return new StudentBOImpl();
-//            case ROOM:
-//                return new RoomBOImpl ();
+                return new StudentBOImpl ();
+            case ROOM:
+                return new RoomBOImpl();
 //            case RESERVATION:
 //                return new RevervationBOImpl ();
 //            case USER:

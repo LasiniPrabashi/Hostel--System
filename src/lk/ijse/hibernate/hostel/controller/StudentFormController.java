@@ -17,7 +17,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import lk.ijse.hibernate.hostel.bo.BOFactory;
 import lk.ijse.hibernate.hostel.bo.custom.StudentBO;
 import lk.ijse.hibernate.hostel.dto.StudentDTO;
@@ -53,7 +52,7 @@ public class StudentFormController implements Initializable {
 
 
     private Session session;
-    private StudentBO studentBO = (StudentBO) BOFactory.getBO(BOFactory.BOTypes.STUDENT);
+    private StudentBO studentBO = (StudentBO) BOFactory. getBO (BOFactory.BOTypes.STUDENT);
 
 
     @Override

@@ -13,14 +13,15 @@ import javafx.scene.input.MouseEvent;
 import lk.ijse.hibernate.hostel.bo.BOFactory;
 import lk.ijse.hibernate.hostel.bo.custom.RoomBO;
 import lk.ijse.hibernate.hostel.dto.RoomDTO;
+import lk.ijse.hibernate.hostel.util.Navigation;
 import lk.ijse.hibernate.hostel.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 public class RoomFormController implements Initializable {
@@ -91,7 +92,7 @@ public class RoomFormController implements Initializable {
     }
 
     public void onActionDelete(ActionEvent actionEvent) {
-        int qty = Integer.parseInt (txtQty.getText ());
+        int qty =Integer.parseInt(txtQty.getText ());
         RoomDTO roomDTO = new RoomDTO (
                 txtRoomId.getText (),
                 txtRoomType.getText (),
@@ -240,5 +241,8 @@ public class RoomFormController implements Initializable {
     }
 
 
+    public void navigateToHome(MouseEvent mouseEvent) throws IOException {
+        Navigation.switchNavigation("DashboardForm.fxml",mouseEvent);
+    }
 }
 
