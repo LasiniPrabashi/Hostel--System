@@ -18,6 +18,7 @@ public class StudentBOImpl implements StudentBO {
     private Session session;
     StudentDAO studentDAO=(StudentDAO) DAOFactory.getDaoFactory ().getDAO (DAOFactory.DAOTypes.STUDENT);
 
+    @Override
     public List<StudentDTO> loadAll() {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
@@ -41,7 +42,7 @@ public class StudentBOImpl implements StudentBO {
         return list;
     }
 
-
+    @Override
     public boolean saveStudent(StudentDTO dto) {
         session= SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
@@ -66,6 +67,7 @@ public class StudentBOImpl implements StudentBO {
         return false;
     }
 
+    @Override
     public boolean updateStudent(StudentDTO dto) {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
@@ -90,6 +92,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
 
+    @Override
     public boolean deleteStudent(StudentDTO dto) {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
@@ -113,7 +116,7 @@ public class StudentBOImpl implements StudentBO {
         return false;
     }
 
-
+     @Override
     public StudentDTO getStudent(String id) throws Exception {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
@@ -129,6 +132,11 @@ public class StudentBOImpl implements StudentBO {
                 st.getDob (),
                 st.getGender ()
         );
+    }
+
+    @Override
+    public int getStudnetCount() {
+        return 0;
     }
 
 

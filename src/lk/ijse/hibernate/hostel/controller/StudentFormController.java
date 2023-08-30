@@ -53,102 +53,146 @@ public class StudentFormController implements Initializable {
         setStID ();
     }
 
+    public void onActionDelete(ActionEvent actionEvent) {
+        String dob = String.valueOf (txtDate.getValue ());
+        String gender = cmbGender.getValue ().toString ();
+        StudentDTO studentDTO = new StudentDTO (txtStId.getText (), txtName.getText (), txtAddress.getText (), txtContact.getText (), dob, gender);
 
-    public void onActionUpdate(ActionEvent actionEvent) {
-        String dob = String.valueOf(txtDate.getValue());
-        String gender = cmbGender.getValue().toString();
-        StudentDTO studentDTO = new StudentDTO(txtStId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), dob, gender);
+        boolean isDeleted=studentBO.deleteStudent (studentDTO);
 
-        boolean isUpdate = studentBO.updateStudent(studentDTO);
-
-        if (isUpdate) {
-            new Alert(Alert.AlertType.INFORMATION, "Student Update Succuss").show();
-            tblStudent.getItems().clear();
-            clearData();
-            loadAllStudent();
-            // setStID ();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Something went Wrong").show();
+        if (isDeleted){
+            new Alert (Alert.AlertType.INFORMATION, "Student Delete Succuss").show ();
+            tblStudent.getItems ().clear ();
+            clearData ();
+            loadAllStudent ();
+            setStID ();
+        }else{
+            new Alert (Alert.AlertType.ERROR, "Something went Wrong").show ();
         }
 
     }
 
-    public void onActionDelete(ActionEvent actionEvent) {
-        String dob = String.valueOf(txtDate.getValue());
-        String gender = cmbGender.getValue().toString();
-        StudentDTO studentDTO = new StudentDTO(
-                txtStId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), dob, gender);
+    public void onActionUpdate(ActionEvent actionEvent) {
+        String dob = String.valueOf (txtDate.getValue ());
+        String gender = cmbGender.getValue ().toString ();
+        StudentDTO studentDTO = new StudentDTO (txtStId.getText (), txtName.getText (), txtAddress.getText (), txtContact.getText (), dob, gender);
 
-        boolean isDeleted = studentBO.deleteStudent(studentDTO);
+        boolean isUpdate=studentBO.updateStudent (studentDTO);
 
-        if (isDeleted) {
-            new Alert(Alert.AlertType.INFORMATION, "Student Delete Succuss").show();
-            tblStudent.getItems().clear();
-            clearData();
-            loadAllStudent();
-            //setStID ();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Something went Wrong").show();
+        if (isUpdate){
+            new Alert (Alert.AlertType.INFORMATION, "Student Update Succuss").show ();
+            tblStudent.getItems ().clear ();
+            clearData ();
+            loadAllStudent ();
+            setStID ();
+        }else {
+            new Alert (Alert.AlertType.ERROR, "Something went Wrong").show ();
         }
+    }
+
+    public boolean checkDuplicate() {
+        List<StudentDTO> allStudents = studentBO.loadAll ();
+        for (StudentDTO s : allStudents) {
+            if (s.getStId ().equals (txtStId.getText ())) {
+                new Alert (Alert.AlertType.ERROR, "This ID Already Have").show ();
+                return false;
+            }
+        }
+        return true;
     }
 
     public void onActionSave(ActionEvent actionEvent) {
-        String dob = String.valueOf(txtDate.getValue());
-        String gender = cmbGender.getValue().toString();
-        StudentDTO studentDTO = new StudentDTO(txtStId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), dob, gender);
+        String dob = String.valueOf (txtDate.getValue ());
+        String gender = cmbGender.getValue ().toString ();
+        StudentDTO studentDTO = new StudentDTO (txtStId.getText (), txtName.getText (), txtAddress.getText (), txtContact.getText (), dob, gender);
 
+        if(checkDuplicate ()){
+            boolean isCheckValidate=checkValidation ();
+            if(isCheckValidate){
+                studentBO.saveStudent (studentDTO);
+                new Alert (Alert.AlertType.CONFIRMATION, "Student saved").show ();
+                tblStudent.getItems ().clear ();
+                clearData ();
+                loadAllStudent ();
+                setStID ();
+            }
 
-        boolean isSave = studentBO.saveStudent(studentDTO);
-        if (isSave) {
-            studentBO.saveStudent(studentDTO);
-            new Alert(Alert.AlertType.CONFIRMATION, "Student saved").show();
-            tblStudent.getItems().clear();
-            clearData();
-            loadAllStudent();
-            setStID();
         }
+    }
 
+    public void setGender() {
+        ObservableList<String> data = FXCollections.observableArrayList ("Male", "Female", "Other");
+        cmbGender.setItems (data);
     }
 
     public void OnActionMouseClicked(MouseEvent mouseEvent) {
-        int index = tblStudent.getSelectionModel().getFocusedIndex();
-        String StId = colstId.getCellData(index).toString();
+        int index = tblStudent.getSelectionModel ().getSelectedIndex ();
+        String stId = colstId.getCellData (index).toString ();//select Column value
 
         try {
-           StudentDTO dto = studentBO.getStudent(StId);
-           txtStId.setText(dto.getStId());
-           txtName.setText(dto.getStName());
-           txtAddress.setText(dto.getAddress());
-           txtContact.setText(dto.getContact());
-           txtDate.setValue(LocalDate.parse(dto.getDob()));
-           cmbGender.setValue(dto.getGender());
+            StudentDTO dto = studentBO.getStudent (stId);
+            txtStId.setText (dto.getStId ());
+            txtName.setText (dto.getStName ());
+            txtAddress.setText (dto.getAddress ());
+            txtContact.setText (dto.getContact ());
+            txtDate.setValue (LocalDate.parse (dto.getDob ()));
+            cmbGender.setValue (dto.getGender ());
+        } catch (Exception e) {
+            System.out.println (e);
+        }
 
-        }catch (Exception e){
-            System.out.println(e);
+    }
+
+    public void setTableStudent() {
+        colstId.setCellValueFactory (new PropertyValueFactory<> ("stId"));
+        colStName.setCellValueFactory (new PropertyValueFactory<> ("stName"));
+        colAddress.setCellValueFactory (new PropertyValueFactory<> ("address"));
+        colDob.setCellValueFactory (new PropertyValueFactory<> ("dob"));
+        colContact.setCellValueFactory (new PropertyValueFactory<> ("contact"));
+        colGender.setCellValueFactory (new PropertyValueFactory<> ("gender"));
+    }
+
+    public void clearData() {
+        txtStId.clear ();
+        txtName.clear ();
+        txtAddress.clear ();
+        txtContact.clear ();
+        txtDate.setValue (null);
+        cmbGender.setValue (null);
+    }
+
+    public void loadAllStudent() {
+
+        try {
+            List allStudents = studentBO.loadAll ();
+            ObservableList observableList = FXCollections.observableArrayList (allStudents);
+            tblStudent.setItems (observableList);
+
+        } catch (Exception e) {
+            System.out.println (e);
         }
     }
+    private boolean checkValidation(){
+        String nameText = txtName.getText();
+        String addressText = txtAddress.getText();
+        String contactText = txtContact.getText();
 
-    private void setTableStudent() {
-        colstId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
-        colStName.setCellValueFactory(new PropertyValueFactory<>("stName"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
-        colContact.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
-        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        if (!addressText.matches(".{2,}")) {
+            new Alert(Alert.AlertType.ERROR, "Address should be at least 3 characters long").show();
+            txtAddress.requestFocus();
+            return false;
+            //} else if (!contactText.matches(".*(?:7|0|(?:\\\\\\\\+94))[0-9]{9,10}")) {
+        } else if (!contactText.matches("\\d{10}")) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Contact").show();
+            txtContact.requestFocus();
+            return false;
+        }else {
+            return true;
+        }
+
     }
-
-    private void setGender() {
-        ObservableList<String> data = FXCollections.observableArrayList("Male", "Female", "Other");
-        cmbGender.setItems(data);
-    }
-
-    private void setStID() {
-        String stID=nextStID ();
-        txtStId.setText (stID);
-    }
-
-    private String nextStID() {
-        Session session = SessionFactoryConfig.getInstance().getSession();
+    public String nextStID() {
+        Session session = SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction = session.beginTransaction ();
 
         Query query = session.createQuery ("select studentId from Student order by studentId desc");
@@ -175,30 +219,14 @@ public class StudentFormController implements Initializable {
 
             return id;
         }
+    }
 
+    public void setStID(){
+        String stID=nextStID ();
+        txtStId.setText (stID);
     }
 
 
-    private void loadAllStudent() {
-        try {
-            List allStudents = studentBO.loadAll();
-            ObservableList observableList = FXCollections.observableArrayList(allStudents);
-            tblStudent.setItems(observableList);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    private void clearData() {
-        txtStId.clear();
-        txtName.clear();
-        txtAddress.clear();
-        txtContact.clear();
-        txtDate.setValue(null);
-        cmbGender.setValue(null);
-
-    }
 
 }
 

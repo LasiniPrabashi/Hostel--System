@@ -12,4 +12,6 @@ public interface StudentBO extends SuperBo {
     boolean updateStudent(StudentDTO studentDTO);
     boolean deleteStudent(StudentDTO studentDTO);
     StudentDTO getStudent(String id) throws Exception;
+
+    int getStudnetCount();
 }

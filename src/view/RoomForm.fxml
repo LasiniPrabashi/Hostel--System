@@ -54,12 +54,12 @@
             <Image url="@assest/img3.png" />
          </image>
       </ImageView>
-      <TableView layoutX="68.0" layoutY="357.0" prefHeight="530.0" prefWidth="916.0">
+      <TableView fx:id="tblRoom" layoutX="67.0" layoutY="355.0" prefHeight="530.0" prefWidth="916.0">
          <columns>
-            <TableColumn prefWidth="240.0" text="Rooom Type ID" />
-            <TableColumn prefWidth="226.0" text="Key Money" />
-            <TableColumn prefWidth="205.0" text="Quantity" />
-            <TableColumn prefWidth="244.0" text="Type" />
+            <TableColumn fx:id="colRoomId" prefWidth="240.0" text="Rooom Type ID" />
+            <TableColumn fx:id="colKeyMoney" prefWidth="226.0" text="Key Money" />
+            <TableColumn fx:id="colQty" prefWidth="205.0" text="Quantity" />
+            <TableColumn fx:id="colRoomType" prefWidth="244.0" text="Type" />
          </columns>
       </TableView>
       <JFXButton layoutX="1335.0" layoutY="334.0" onAction="#onActionUpdate" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #189A2E;" stylesheets="@assest/css/studentForm.css" text="Update">

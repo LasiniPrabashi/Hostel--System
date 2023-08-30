@@ -44,4 +44,8 @@ public class RoomDTO {
     public void setQty(int qty) {
         this.qty = qty;
     }
+
+    public String getRoomID() {
+        return roomId;
+    }
 }
