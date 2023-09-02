@@ -1,36 +1,40 @@
 package lk.ijse.hibernate.hostel.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "reservation")
 public class Reservation {
+
     @Id
     @Column(name = "resId",length = 25)
-    String resId;
-    @Column(name = "date")
-    Date date;
-    @JoinColumn(name = "studentId", referencedColumnName = "studentId", nullable = false)
-    @ManyToOne
-    Student student;
-    @JoinColumn(name = "roomTypeId", referencedColumnName = "roomTypeId", nullable = false)
-    @ManyToOne
-    Room room;
-    @Column(name = "status")
-    String status;
+    private String resId;
 
     public Reservation(String resId, Date date, Student student, Room room, String status) {
         this.resId = resId;
-        this.date = date;
+        this.setDate (date);
         this.student = student;
         this.room = room;
         this.status = status;
     }
 
     public Reservation() {
-
     }
+    @Column(name = "date")
+    private Date date;
+
+
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    @ManyToOne
+    @JoinColumn(name ="room_id")
+    private Room room;
+
+    @Column(name = "status")
+    private String status;
 
     public String getResId() {
         return resId;
@@ -40,13 +44,6 @@ public class Reservation {
         this.resId = resId;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public Student getStudent() {
         return student;
@@ -72,4 +69,11 @@ public class Reservation {
         this.status = status;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

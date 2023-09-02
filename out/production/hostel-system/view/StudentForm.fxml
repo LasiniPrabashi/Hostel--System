@@ -21,12 +21,12 @@
             <Image url="@assest/img.png" />
          </image>
       </ImageView>
-      <Label layoutX="117.0" layoutY="31.0" prefHeight="41.0" prefWidth="386.0" text="Student Information">
+      <Label layoutX="117.0" layoutY="31.0" prefHeight="41.0" prefWidth="386.0" text="Student Information" textFill="#1e1e1e">
          <font>
             <Font name="Times New Roman Bold" size="39.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtStId" layoutX="74.0" layoutY="167.0" prefHeight="32.0" prefWidth="315.0" promptText="Student Id">
+      <JFXTextField fx:id="txtStId" layoutX="74.0" layoutY="167.0" prefHeight="32.0" prefWidth="315.0" promptText="Student Id" unFocusColor="#fff9f9">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>

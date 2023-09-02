@@ -170,20 +170,6 @@ public class RoomFormController implements Initializable {
         colQty.setCellValueFactory (new PropertyValueFactory<> ("qty"));
     }
 
-    public void OnActionMiuseClickedRoom(MouseEvent mouseEvent) {
-        int index = tblRoom.getSelectionModel ().getSelectedIndex ();
-        String roomId = colRoomId.getCellData (index).toString ();//select Column value
-
-        try {
-            RoomDTO dto = roomBO.getRoom (roomId);
-            txtRoomId.setText (dto.getRoomID ());
-            txtRoomType.setText (dto.getType ());
-            txtKeymoney.setText (dto.getKeyMoney ());
-            txtQty.setText (String.valueOf (dto.getQty ()));
-        } catch (Exception e) {
-            System.out.println (e);
-        }
-    }
 
     private boolean checkValidation() {
         String typeText = txtRoomType.getText ();
@@ -244,5 +230,21 @@ public class RoomFormController implements Initializable {
     public void navigateToHome(MouseEvent mouseEvent) throws IOException {
         Navigation.switchNavigation("DashboardForm.fxml",mouseEvent);
     }
-}
+
+    public void OnActionMouseClicked(MouseEvent mouseEvent) {
+        int index = tblRoom.getSelectionModel ().getSelectedIndex ();
+        String roomId = colRoomId.getCellData (index).toString ();//select Column value
+
+        try {
+            RoomDTO dto = roomBO.getRoom (roomId);
+            txtRoomId.setText (dto.getRoomID ());
+            txtRoomType.setText (dto.getType ());
+            txtKeymoney.setText (dto.getKeyMoney ());
+            txtQty.setText (String.valueOf (dto.getQty ()));
+        } catch (Exception e) {
+            System.out.println (e);
+        }
+    }
+    }
+
 

@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="904.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="904.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.ReservationFormController">
    <children>
       <ImageView fitHeight="904.0" fitWidth="1700.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -25,33 +25,23 @@
             <Font name="Times New Roman Bold" size="39.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="74.0" layoutY="167.0" prefHeight="32.0" prefWidth="315.0" promptText="Reservation ID">
+      <JFXTextField fx:id="txtResId" layoutX="68.0" layoutY="164.0" prefHeight="37.0" prefWidth="315.0" promptText="Room Type ID" text="Reservation ID">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField layoutX="483.0" layoutY="167.0" prefHeight="32.0" prefWidth="315.0" promptText="Student ID">
+      <JFXTextField fx:id="txtStName" layoutX="830.0" layoutY="164.0" prefHeight="32.0" prefWidth="315.0" promptText="Date" text="Student Name">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField layoutX="876.0" layoutY="167.0" prefHeight="37.0" prefWidth="315.0" promptText="Room Type ID">
-         <font>
-            <Font name="Times New Roman Bold" size="20.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField layoutX="74.0" layoutY="264.0" prefHeight="32.0" prefWidth="315.0" promptText="Date">
-         <font>
-            <Font name="Times New Roman Bold" size="20.0" />
-         </font>
-      </JFXTextField>
-      <JFXComboBox layoutX="483.0" layoutY="270.0" prefHeight="31.0" prefWidth="277.0" promptText="Status" visibleRowCount="1">
+      <JFXComboBox fx:id="cmbStatus" layoutX="68.0" layoutY="267.0" prefHeight="31.0" prefWidth="277.0" promptText="Status" visibleRowCount="1">
          <stylesheets>
             <URL value="@assest/css/studentComboBox.css" />
             <URL value="@assest/css/studentComboBox.css" />
          </stylesheets>
       </JFXComboBox>
-      <JFXButton layoutX="1169.0" layoutY="334.0" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #EBE76C;" stylesheets="@assest/css/studentForm.css" text="Save">
+      <JFXButton layoutX="1205.0" layoutY="334.0" onAction="#onActionSaveRes" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #EBE76C;" stylesheets="@assest/css/studentForm.css" text="Save">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -62,29 +52,52 @@
             <Image url="@assest/img1.png" />
          </image>
       </ImageView>
-      <TableView layoutX="68.0" layoutY="357.0" prefHeight="530.0" prefWidth="916.0">
+      <TableView fx:id="tblReservation" layoutX="68.0" layoutY="357.0" onMouseClicked="#onMouseClickReservation" prefHeight="530.0" prefWidth="1094.0">
          <columns>
-            <TableColumn prefWidth="172.0" text="Reservation ID" />
-            <TableColumn prefWidth="180.0" text="Date" />
-            <TableColumn prefWidth="190.0" text="Student ID" />
-            <TableColumn prefWidth="185.0" text="Room Type ID" />
-            <TableColumn prefWidth="188.0" text="Status" />
+            <TableColumn fx:id="colResId" prefWidth="172.0" text="Reservation ID" />
+            <TableColumn fx:id="colStId" prefWidth="180.0" text="Student Id" />
+            <TableColumn fx:id="colStName" prefWidth="190.0" text="Student Name" />
+            <TableColumn fx:id="colRoomId" prefWidth="185.0" text="Room Id" />
+            <TableColumn fx:id="colRoomType" prefWidth="188.0" text="Room Type" />
+            <TableColumn fx:id="colStatus" prefWidth="188.0" text="Status" />
          </columns>
       </TableView>
-      <JFXButton layoutX="1335.0" layoutY="334.0" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #189A2E;" stylesheets="@assest/css/studentForm.css" text="Update">
+      <JFXButton layoutX="1367.0" layoutY="334.0" onAction="#onActionUpdateRes" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #189A2E;" stylesheets="@assest/css/studentForm.css" text="Update">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1492.0" layoutY="334.0" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #D71313;" stylesheets="@assest/css/studentForm.css" text="Delete">
+      <JFXButton layoutX="1526.0" layoutY="334.0" onAction="#onActionDeleteRes" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #D71313;" stylesheets="@assest/css/studentForm.css" text="Delete">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXTextField layoutX="864.0" layoutY="267.0" prefHeight="37.0" prefWidth="315.0" promptText="Rooms Availabele Qty">
+      <JFXTextField fx:id="txtQty" layoutX="864.0" layoutY="267.0" prefHeight="37.0" prefWidth="315.0" promptText="Rooms Availabele Qty">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </JFXTextField>
+      <JFXComboBox fx:id="cmbROOMId" layoutX="1205.0" layoutY="170.0" prefHeight="31.0" prefWidth="277.0" promptText=" Room ID" visibleRowCount="1">
+         <stylesheets>
+            <URL value="@assest/css/studentComboBox.css" />
+            <URL value="@assest/css/studentComboBox.css" />
+         </stylesheets>
+      </JFXComboBox>
+      <JFXComboBox fx:id="cmbSTId" layoutX="476.0" layoutY="170.0" prefHeight="31.0" prefWidth="277.0" promptText="Student ID" visibleRowCount="1">
+         <stylesheets>
+            <URL value="@assest/css/studentComboBox.css" />
+            <URL value="@assest/css/studentComboBox.css" />
+         </stylesheets>
+      </JFXComboBox>
+      <JFXTextField fx:id="txtRoomType" layoutX="469.0" layoutY="264.0" prefHeight="37.0" prefWidth="315.0" promptText="Room Type ID" text="Room Type">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </JFXTextField>
+      <ImageView fitHeight="57.0" fitWidth="66.0" layoutX="1567.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assest/img4.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

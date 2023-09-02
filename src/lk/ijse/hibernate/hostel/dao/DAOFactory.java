@@ -1,5 +1,6 @@
 package lk.ijse.hibernate.hostel.dao;
 
+import lk.ijse.hibernate.hostel.dao.custom.impl.ReservationDAOImpl;
 import lk.ijse.hibernate.hostel.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.hibernate.hostel.dao.custom.impl.StudentDAOImpl;
 
@@ -25,8 +26,8 @@ public class DAOFactory {
                 return new StudentDAOImpl();
             case ROOM:
                 return new RoomDAOImpl();
-//            case RESERVATION:
-//                return new RevervationDAOImpl ();
+            case RESERVATION:
+                return new ReservationDAOImpl();
 //            case USER:
 //                return new UserDAOImpl ();
             default:

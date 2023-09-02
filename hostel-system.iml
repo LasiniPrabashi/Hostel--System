@@ -27,5 +27,7 @@
     <orderEntry type="library" name="mysql-connector-j-8.0.32" level="project" />
     <orderEntry type="library" name="antlr-2.7.7" level="project" />
     <orderEntry type="library" name="jfoenix-8.0.7" level="project" />
+    <orderEntry type="library" name="controlsfx-8.40.11 (1)" level="project" />
+    <orderEntry type="library" name="Twilio" level="project" />
   </component>
 </module>

@@ -1,12 +1,6 @@
 package lk.ijse.hibernate.hostel.controller;
 
-import com.jfoenix.controls.JFXButton;
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.image.ImageView;
-import javafx.util.Duration;
 import lk.ijse.hibernate.hostel.util.Navigation;
 
 import java.io.IOException;

@@ -1,10 +1,7 @@
 package lk.ijse.hibernate.hostel.controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.hibernate.hostel.util.Navigation;
 
 import java.io.IOException;

@@ -23,6 +23,8 @@ public class Student {
     private String gender;
 
 
+
+
     public Student(String studentId, String name, String address, String contactNo, String dob, String gender) {
         this.studentId = studentId;
         this.name = name;

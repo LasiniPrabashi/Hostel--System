@@ -1,9 +1,7 @@
 package lk.ijse.hibernate.hostel.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -19,6 +17,8 @@ public class Room {
     private String keyMoney;
     @Column(name = "quantity")
     private int qty;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "room")
+    List<Reservation> reservationList;
 
     public Room(String roomTypeId, String type, String keyMoney, int qty) {
         this.roomTypeId = roomTypeId;
