@@ -1,6 +1,5 @@
 package lk.ijse.hibernate.hostel.bo.custom.impl;
 
-import lk.ijse.hibernate.hostel.bo.custom.ReservationBO;
 import lk.ijse.hibernate.hostel.dao.DAOFactory;
 import lk.ijse.hibernate.hostel.dao.custom.ReservationDAO;
 import lk.ijse.hibernate.hostel.dao.custom.RoomDAO;
@@ -18,8 +17,7 @@ import org.hibernate.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReservationBOImpl implements ReservationBO {
-
+public class ReservationBOImpl {
     private Session session;
     StudentDAO studentDAO= (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
     RoomDAO roomDAO=(RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
@@ -181,7 +179,7 @@ public class ReservationBOImpl implements ReservationBO {
                             dto.getRoomDTO().getQty()
                     ),
                     dto.getStatus()
-                    ));
+            ));
 
             transaction.commit();
             session.close();
@@ -247,10 +245,10 @@ public class ReservationBOImpl implements ReservationBO {
                             dto.getStudentDTO().getGender()
                     ),
                     new Room(
-                           dto.getRoomDTO().getRoomId(),
-                           dto.getRoomDTO().getType(),
-                           dto.getRoomDTO().getKeyMoney(),
-                           dto.getRoomDTO().getQty()
+                            dto.getRoomDTO().getRoomId(),
+                            dto.getRoomDTO().getType(),
+                            dto.getRoomDTO().getKeyMoney(),
+                            dto.getRoomDTO().getQty()
                     ),
                     dto.getStatus()
             ));
@@ -297,4 +295,3 @@ public class ReservationBOImpl implements ReservationBO {
         return resList;
     }
 }
-
