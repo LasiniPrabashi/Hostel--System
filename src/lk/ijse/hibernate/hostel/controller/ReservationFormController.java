@@ -17,11 +17,13 @@ import lk.ijse.hibernate.hostel.dto.ReservationDTO;
 import lk.ijse.hibernate.hostel.dto.RoomDTO;
 import lk.ijse.hibernate.hostel.dto.StudentDTO;
 import lk.ijse.hibernate.hostel.dto.tm.ReservationTm;
+import lk.ijse.hibernate.hostel.util.Navigation;
 import lk.ijse.hibernate.hostel.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.List;
@@ -140,12 +142,12 @@ public class ReservationFormController implements Initializable {
         return resBO.getStudent (stId);
     }
 
-    private boolean checkDuplicate() {
-        String resId = txtResId.getText ();
-        List<ReservationDTO> list = resBO.loadAll ();
+    private boolean checkDuplicate(){
+        String resId = txtResId.getText();
+        List<ReservationDTO> list = resBO.loadAll();
 
-        for (ReservationDTO dto : list) {
-            if (resId.equals (dto.getResID ())) {
+        for (ReservationDTO dto : list){
+            if (resId.equals (dto.getResID ())){
                 new Alert(Alert.AlertType.CONFIRMATION, "RESERVATION ADDED SUCCUSS").show ();
                 return false;
             }
@@ -293,5 +295,9 @@ public class ReservationFormController implements Initializable {
             return id;
         }
 
+    }
+
+    public void navigateToHome(MouseEvent mouseEvent) throws IOException {
+        Navigation.switchNavigation("DashboardForm.fxml",mouseEvent);
     }
 }

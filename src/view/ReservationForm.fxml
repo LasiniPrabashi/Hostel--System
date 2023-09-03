@@ -94,7 +94,7 @@
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </JFXTextField>
-      <ImageView fitHeight="57.0" fitWidth="66.0" layoutX="1567.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="66.0" layoutX="1567.0" layoutY="31.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assest/img4.jpg" />
          </image>

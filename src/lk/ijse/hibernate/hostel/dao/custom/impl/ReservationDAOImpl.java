@@ -41,6 +41,6 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public void setSession(Session session) {
-
+              this.session=session;
     }
 }
