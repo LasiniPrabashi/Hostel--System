@@ -3,7 +3,6 @@ package lk.ijse.hibernate.hostel.dto;
 import java.util.Date;
 
 public class ReservationDTO {
-
     private String resID;
     private Date date;
     private StudentDTO studentDTO;

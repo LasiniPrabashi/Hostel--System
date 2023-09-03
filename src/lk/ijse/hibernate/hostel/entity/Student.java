@@ -1,15 +1,13 @@
 package lk.ijse.hibernate.hostel.entity;
 
-
 import javax.persistence.*;
 import java.util.List;
-
 
 @Entity
 @Table(name = "student")
 public class Student {
     @Id
-    @Column(name = "student_id",length = 25)
+    @Column(name = "student_id", length = 25)
     private String studentId;
     @Column(name = "stName")
     private String name;
@@ -22,7 +20,7 @@ public class Student {
     @Column(name = "gender")
     private String gender;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "student")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "student")
     private List<Reservation> reservationList;
 
 

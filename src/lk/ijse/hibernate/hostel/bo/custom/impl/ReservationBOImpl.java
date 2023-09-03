@@ -1,5 +1,6 @@
 package lk.ijse.hibernate.hostel.bo.custom.impl;
 
+import lk.ijse.hibernate.hostel.bo.custom.ReservationBO;
 import lk.ijse.hibernate.hostel.dao.DAOFactory;
 import lk.ijse.hibernate.hostel.dao.custom.ReservationDAO;
 import lk.ijse.hibernate.hostel.dao.custom.RoomDAO;
@@ -17,7 +18,7 @@ import org.hibernate.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReservationBOImpl {
+public class ReservationBOImpl implements ReservationBO {
     private Session session;
     StudentDAO studentDAO= (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
     RoomDAO roomDAO=(RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);

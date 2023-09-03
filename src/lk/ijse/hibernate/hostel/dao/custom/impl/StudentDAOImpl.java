@@ -8,7 +8,6 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
-
     private Session session;
 
     public List<Student> loadAll() {
@@ -47,7 +46,6 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public void setSession(Session session) {
-             this.session=session;
+        this.session=session;
     }
-
 }

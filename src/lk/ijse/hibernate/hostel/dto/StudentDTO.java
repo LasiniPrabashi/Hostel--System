@@ -65,5 +65,4 @@ public class StudentDTO {
         this.gender = gender;
     }
 
-
 }

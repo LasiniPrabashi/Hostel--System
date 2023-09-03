@@ -8,7 +8,6 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class ReservationDAOImpl implements ReservationDAO {
-
     private Session session;
 
     @Override
@@ -27,12 +26,12 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public void update(Reservation reservation) {
-          session.update(reservation);
+        session.update(reservation);
     }
 
     @Override
     public void delete(Reservation reservation) {
-            session.delete(reservation);
+        session.delete(reservation);
     }
 
     @Override

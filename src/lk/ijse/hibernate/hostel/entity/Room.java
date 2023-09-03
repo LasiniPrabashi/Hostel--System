@@ -3,7 +3,6 @@ package lk.ijse.hibernate.hostel.entity;
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity
 @Table(name = "room")
 public class Room {
@@ -17,7 +16,7 @@ public class Room {
     private String keyMoney;
     @Column(name = "quantity")
     private int qty;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "room")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "room")
     List<Reservation> reservationList;
 
     public Room(String roomTypeId, String type, String keyMoney, int qty) {
@@ -62,6 +61,4 @@ public class Room {
     public void setQty(int qty) {
         this.qty = qty;
     }
-
-
 }

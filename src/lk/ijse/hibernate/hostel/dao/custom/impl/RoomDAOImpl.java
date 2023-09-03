@@ -8,7 +8,6 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class RoomDAOImpl implements RoomDAO {
-
     private Session session;
     @Override
     public List<Room> loadAll() {
@@ -49,6 +48,6 @@ public class RoomDAOImpl implements RoomDAO {
 
     @Override
     public void setSession(Session session) {
-            this.session = session;
+        this.session = session;
     }
 }

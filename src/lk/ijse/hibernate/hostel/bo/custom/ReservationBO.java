@@ -1,12 +1,13 @@
 package lk.ijse.hibernate.hostel.bo.custom;
 
+import lk.ijse.hibernate.hostel.bo.SuperBO;
 import lk.ijse.hibernate.hostel.dto.ReservationDTO;
 import lk.ijse.hibernate.hostel.dto.RoomDTO;
 import lk.ijse.hibernate.hostel.dto.StudentDTO;
 
 import java.util.List;
 
-public interface ReservationBO {
+public interface ReservationBO extends SuperBO {
     List<String> getStudentIds();
     List<String> getRoomIds();
     StudentDTO getStudent(String id);

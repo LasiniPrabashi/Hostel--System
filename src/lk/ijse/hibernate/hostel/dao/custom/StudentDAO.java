@@ -6,7 +6,5 @@ import lk.ijse.hibernate.hostel.entity.Student;
 import java.util.List;
 
 public interface StudentDAO extends CrudDAO<Student> {
-
-    List<String> getStIds();
-
+        List<String> getStIds();
 }

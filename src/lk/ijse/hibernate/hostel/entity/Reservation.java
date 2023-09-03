@@ -8,7 +8,7 @@ import java.util.Date;
 public class Reservation {
 
     @Id
-    @Column(name = "resId",length = 25)
+    @Column(name = "resId", length = 25)
     private String resId;
 
     @Column(name = "date")
@@ -19,7 +19,7 @@ public class Reservation {
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name ="room_id")
+    @JoinColumn(name = "room_id")
     private Room room;
 
     @Column(name = "status")
