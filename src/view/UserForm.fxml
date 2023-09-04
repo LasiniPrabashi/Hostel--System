@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -22,66 +23,28 @@
                   <Image url="@assest/img5.png" />
                </image>
             </ImageView>
-            <Text fill="#232525" layoutX="13.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Username :">
+            <Text fill="#232525" layoutX="25.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Username :">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#232525" layoutX="13.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Username :">
+            <Text fill="#232525" layoutX="19.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password :">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#232525" layoutX="16.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password :">
+            <Text fill="#232525" layoutX="6.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-Enter  Password:" wrappingWidth="181.248046875">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#232525" layoutX="16.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password :" wrappingWidth="190.248046875">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <TextField fx:id="txtCurrentUsername" layoutX="206.0" layoutY="376.0" prefHeight="31.0" prefWidth="297.0" />
-            <TextField fx:id="txtNewUsername" layoutX="206.0" layoutY="434.0" prefHeight="31.0" prefWidth="297.0" />
-            <TextField fx:id="txtNewPassword" layoutX="206.0" layoutY="483.0" prefHeight="31.0" prefWidth="297.0" />
-            <TextField fx:id="txtConfirmPassword" layoutX="206.0" layoutY="526.0" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtNewUsername" layoutX="198.0" layoutY="308.0" onAction="#txtUserNameOnAction" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtNewPassword" layoutX="198.0" layoutY="403.0" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtReNewPassWord" layoutX="198.0" layoutY="495.0" prefHeight="31.0" prefWidth="297.0" />
             <JFXButton layoutX="391.0" layoutY="602.0" onAction="#btnSaveChangesOnAction" style="-fx-background-color: black; -fx-background-radius: 5px;" text="Save Changes" textFill="#fffafa" />
-            <Text fx:id="txtName" fill="#111111" layoutX="88.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lasini Prabashi" textAlignment="CENTER" wrappingWidth="382.0000066757202">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <Text fill="#212222" layoutX="49.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username :">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#2f3232" layoutX="49.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#303232" layoutX="299.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ContactNo:" wrappingWidth="111.9999960809946">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtUsername" fill="#2d2f2f" layoutX="163.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtContact" fill="#2d2f2f" layoutX="427.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0774965089">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fx:id="txtPassword" fill="#2d2f2f" layoutX="163.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1234">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
+            <Label fx:id="lblnewUserName" layoutX="198.0" layoutY="352.0" prefHeight="35.0" prefWidth="341.0" />
+            <Label fx:id="lblnewPassWord" layoutX="198.0" layoutY="449.0" prefHeight="35.0" prefWidth="341.0" />
+            <Label fx:id="lblrenewPassword" layoutX="198.0" layoutY="536.0" prefHeight="35.0" prefWidth="341.0" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="652.0" layoutY="20.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">

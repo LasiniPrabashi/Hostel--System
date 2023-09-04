@@ -5,6 +5,7 @@ import lk.ijse.hibernate.hostel.bo.custom.impl.RoomBOImpl;
 import lk.ijse.hibernate.hostel.bo.custom.impl.StudentBOImpl;
 import lk.ijse.hibernate.hostel.bo.custom.impl.UserBOImpl;
 
+
 public class BOFactory {
     public static BOFactory boFactory;
     public BOFactory() {

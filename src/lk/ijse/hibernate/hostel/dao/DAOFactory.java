@@ -5,6 +5,7 @@ import lk.ijse.hibernate.hostel.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.hibernate.hostel.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.hibernate.hostel.dao.custom.impl.UserDAOImpl;
 
+
 public class DAOFactory {
     public static DAOFactory daoFactory;
 

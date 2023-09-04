@@ -24,4 +24,7 @@ public class DashboardFormController {
     }
 
 
+    public void btnLogOutOnAction(ActionEvent actionEvent) throws IOException {
+         Navigation.switchNavigation("LoginForm.fxml",actionEvent);
+    }
 }

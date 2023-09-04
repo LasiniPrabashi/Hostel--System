@@ -8,18 +8,18 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="960.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.DashboardFormController">
+<AnchorPane prefHeight="904.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.DashboardFormController">
    <children>
-      <AnchorPane prefHeight="990.0" prefWidth="1920.0">
+      <AnchorPane prefHeight="904.0" prefWidth="1900.0">
          <children>
             <Label layoutX="697.0" layoutY="44.0" prefHeight="55.0" prefWidth="434.0" text="D24 Hostel Management">
                <font>
                   <Font name="Times New Roman Bold" size="40.0" />
                </font>
             </Label>
-            <AnchorPane layoutY="131.0" prefHeight="909.0" prefWidth="1921.0">
+            <AnchorPane layoutY="131.0" prefHeight="900.0" prefWidth="1921.0">
                <children>
-                  <ImageView fitHeight="909.0" fitWidth="1921.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="909.0" fitWidth="2033.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assest/background.png" />
                      </image>
@@ -82,7 +82,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <JFXButton layoutX="1744.0" layoutY="33.0" prefHeight="45.0" prefWidth="124.0" text="LogOut">
+            <JFXButton layoutX="1744.0" layoutY="33.0" onAction="#btnLogOutOnAction" prefHeight="45.0" prefWidth="124.0" text="LogOut">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

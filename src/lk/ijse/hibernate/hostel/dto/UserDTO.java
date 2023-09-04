@@ -1,49 +1,39 @@
 package lk.ijse.hibernate.hostel.dto;
 
 public class UserDTO {
-    private String userName;
-    private String password;
-    private String name;
-    private String contactNo;
+    private String UserName;
+    private String PassWord;
 
-    public UserDTO(String userName, String password, String name, String contactNo) {
-        this.userName = userName;
-        this.password = password;
-        this.name = name;
-        this.contactNo = contactNo;
+    public UserDTO(String userName, String passWord) {
+        UserName = userName;
+        PassWord = passWord;
+    }
+
+    public UserDTO() {
+
     }
 
     public String getUserName() {
-        return userName;
+        return UserName;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        UserName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassWord() {
+        return PassWord;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassWord(String passWord) {
+        PassWord = passWord;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "UserName='" + UserName + '\'' +
+                ", PassWord='" + PassWord + '\'' +
+                '}';
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getContactNo() {
-        return contactNo;
-    }
-
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
-    }
-
-
 }
