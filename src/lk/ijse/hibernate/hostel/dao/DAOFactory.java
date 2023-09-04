@@ -3,6 +3,7 @@ package lk.ijse.hibernate.hostel.dao;
 import lk.ijse.hibernate.hostel.dao.custom.impl.ReservationDAOImpl;
 import lk.ijse.hibernate.hostel.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.hibernate.hostel.dao.custom.impl.StudentDAOImpl;
+import lk.ijse.hibernate.hostel.dao.custom.impl.UserDAOImpl;
 
 public class DAOFactory {
     public static DAOFactory daoFactory;
@@ -28,8 +29,8 @@ public class DAOFactory {
                 return new RoomDAOImpl();
             case RESERVATION:
                 return new ReservationDAOImpl();
-//            case USER:
-//                return new UserDAOImpl ();
+            case USER:
+                return new UserDAOImpl();
             default:
                 return null;
         }

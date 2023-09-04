@@ -37,6 +37,7 @@ public class RoomDAOImpl implements RoomDAO {
         return session.get(Room.class,id);
     }
 
+
     @Override
     public List<String> roomIds() {
         String hql = "SELECT id from Room ";

@@ -82,7 +82,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <JFXButton layoutX="1744.0" layoutY="33.0" prefHeight="45.0" prefWidth="124.0" text="LogOut">
+            <JFXButton layoutX="1744.0" layoutY="33.0" onAction="#btnLogOutOnAction" prefHeight="45.0" prefWidth="124.0" text="LogOut">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

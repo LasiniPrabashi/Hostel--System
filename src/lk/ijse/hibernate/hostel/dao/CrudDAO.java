@@ -8,4 +8,5 @@ public interface CrudDAO<T> extends SuperDAO {
     void update(T t);
     void delete(T t);
     T getObject(String id) throws Exception;
+//    public T search(String id);
 }

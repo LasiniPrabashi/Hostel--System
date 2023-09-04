@@ -1,14 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.hibernate.hostel.controller.UserFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="804.0" prefWidth="745.0" style="-fx-background-color: FEFFAC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.UserFormController">
+   <children>
+      <AnchorPane layoutX="94.0" layoutY="75.0" prefHeight="676.0" prefWidth="558.0" style="-fx-background-color: white; -fx-background-radius: 30px;">
+         <children>
+            <Text fill="#242525" layoutX="139.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Username &amp; Password">
+               <font>
+                  <Font name="Times New Roman Bold" size="24.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="115.0" fitWidth="122.0" layoutX="222.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assest/img5.png" />
+               </image>
+            </ImageView>
+            <Text fill="#232525" layoutX="13.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Username :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#232525" layoutX="13.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Username :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#232525" layoutX="16.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#232525" layoutX="16.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password :" wrappingWidth="190.248046875">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtCurrentUsername" layoutX="206.0" layoutY="376.0" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtNewUsername" layoutX="206.0" layoutY="434.0" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtNewPassword" layoutX="206.0" layoutY="483.0" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtConfirmPassword" layoutX="206.0" layoutY="526.0" prefHeight="31.0" prefWidth="297.0" />
+            <JFXButton layoutX="391.0" layoutY="602.0" onAction="#btnSaveChangesOnAction" style="-fx-background-color: black; -fx-background-radius: 5px;" text="Save Changes" textFill="#fffafa" />
+            <Text fx:id="txtName" fill="#111111" layoutX="88.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lasini Prabashi" textAlignment="CENTER" wrappingWidth="382.0000066757202">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#212222" layoutX="49.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#2f3232" layoutX="49.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#303232" layoutX="299.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ContactNo:" wrappingWidth="111.9999960809946">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtUsername" fill="#2d2f2f" layoutX="163.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtContact" fill="#2d2f2f" layoutX="427.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0774965089">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtPassword" fill="#2d2f2f" layoutX="163.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1234">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="652.0" layoutY="20.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assest/img4.jpg" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
