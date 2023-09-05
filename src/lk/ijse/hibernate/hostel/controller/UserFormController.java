@@ -2,6 +2,7 @@ package lk.ijse.hibernate.hostel.controller;
 
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
@@ -13,65 +14,119 @@ import lk.ijse.hibernate.hostel.bo.BOFactory;
 import lk.ijse.hibernate.hostel.bo.custom.UserBO;
 import lk.ijse.hibernate.hostel.dto.UserDTO;
 import lk.ijse.hibernate.hostel.util.Navigation;
+import lk.ijse.hibernate.hostel.util.SessionFactoryConfig;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 
-public class UserFormController {
+public class UserFormController implements Initializable {
 
 
-    public TextField txtNewUsername;
-    public TextField txtNewPassword;
-    public TextField txtReNewPassWord;
-    public Label lblnewUserName;
-    public Label lblnewPassWord;
-    public Label lblrenewPassword;
+    public TextField txtUserName;
+    public TextField txtPass;
+    public TextField txtRePass;
+    public TextField txtUserId;
 
-    UserDTO userDTO = new UserDTO();
-   UserBO userBO = (UserBO) BOFactory.getBO(BOFactory.BOTypes.USER);
-
-    public void initialize() {
-    }
-
-  public void btnSaveChangesOnAction(ActionEvent actionEvent) {
+    private UserBO userBO = (UserBO) BOFactory.getBO(BOFactory.BOTypes.USER);
 
 
-    String userName = txtNewUsername.getText();
-    String password = txtNewPassword.getText();
-    String rePassword = txtReNewPassWord.getText();
+    public void btnSaveChangesOnAction(ActionEvent actionEvent) {
 
-        lblnewUserName.setText(null);
-        lblnewPassWord.setText(null);
-        lblrenewPassword.setText(null);
-        if (password.equals(rePassword)) {
-        boolean isUpdated = userBO.update(new UserDTO(userName, password));
-//            userService.save(userDTO);
-        Alert alert;
-        if (isUpdated) {
-            alert = new Alert(Alert.AlertType.INFORMATION, "Password and UserName has been successfully Update");
-            txtNewUsername.setText(null);
-            txtNewPassword.setText(null);
-            txtReNewPassWord.setText(null);
+        String pass = txtPass.getText();
+        String rePass = txtRePass.getText();
+        String userId = txtUserId.getText();
+        String userName = txtUserName.getText();
+
+        if (checkDuplidate()) {
+            if (checkDuplidate()) {
+                if (pass.equals(rePass)) {
+                    userBO.saveUser(new UserDTO(
+                            userId,
+                            userName,
+                            pass
+                    ));
+                    new Alert(Alert.AlertType.CONFIRMATION, "USER ACCOUNT CREATE SUCCESS").show();
+                    clearFeilds();
+                    setUserId();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Check your pass word and try again").show();
+
+                }
+            }
         } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
+            new Alert(Alert.AlertType.ERROR, "This user id already get").show();
+            clearFeilds();
+
         }
-        alert.show();
-    } else {
-        lblrenewPassword.setText("Is not matched");
-        txtNewPassword.requestFocus();
-        txtReNewPassWord.setText(null);
+
     }
-}
+
+    private void setUserId() {
+        String userID = nextUserID();
+        txtUserId.setText(userID);
+    }
+
+    private String nextUserID() {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("select userId from User order by userId desc");
+
+        String nextId = "U001";
+
+        if (query.list().size() == 0) {
+            return nextId;
+        } else {
+            String id = (String) query.list().get(0);
+
+            String[] SUs = id.split("U00");
+
+            for (String a : SUs) {
+                id = a;
+            }
+
+            int idNum = Integer.valueOf(id);
+
+            id = "U00" + (idNum + 1);
+
+            transaction.commit();
+            session.close();
+
+            return id;
+        }
+    }
+
+    private void clearFeilds() {
+        txtRePass.clear();
+        txtPass.clear();
+        txtUserId.clear();
+        txtUserName.clear();
+    }
+
+    private boolean checkDuplidate() {
+        String userId = txtUserId.getText();
+        List<UserDTO> allRoom = userBO.loadAll();
+        for (UserDTO u : allRoom) {
+            if (userId.equals(u.getUserId())) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public void navigateToHome(MouseEvent mouseEvent) throws IOException {
-        Navigation.switchNavigation("DashboardForm.fxml",mouseEvent);
+        Navigation.switchNavigation("DashboardForm.fxml", mouseEvent);
     }
 
-    public void txtUserNameOnAction(ActionEvent actionEvent) throws Exception {
-
-        userDTO = userBO.get(txtNewUsername.getText());
-        txtNewUsername.setText(userDTO.getUserName());
-        txtNewPassword.setText(userDTO.getPassWord());
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setUserId();
     }
 }
 

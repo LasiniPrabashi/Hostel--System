@@ -3,6 +3,7 @@ package lk.ijse.hibernate.hostel.dao.custom.impl;
 import lk.ijse.hibernate.hostel.dao.custom.UserDAO;
 import lk.ijse.hibernate.hostel.entity.User;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -10,8 +11,17 @@ public class UserDAOImpl implements UserDAO {
     private Session session;
 
     @Override
+    public void setSession(Session session) {
+        this.session=session;
+    }
+
+    @Override
     public List<User> loadAll() {
-        return null;
+        String sqlQuery="FROM User ";
+        Query query = session.createQuery(sqlQuery);
+        List list =query.list ();
+        session.close();
+        return list;
     }
 
     @Override
@@ -30,12 +40,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getObject(String userName) throws Exception {
-        return session.get(User.class, userName);
-    }
-
-    @Override
-    public void setSession(Session session) {
-         this.session=session;
+    public User getObject(String id) throws Exception {
+        return session.get(User.class,id);
     }
 }

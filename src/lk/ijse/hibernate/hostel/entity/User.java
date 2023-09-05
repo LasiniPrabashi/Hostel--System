@@ -9,33 +9,52 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User {
     @Id
-    @Column(name = "user_name", length = 25)
-    private String UserName;
+    @Column(name = "Uid",length = 25)
+    private String userId;
+    @Column(name = "userName")
+    private String userName;
     @Column(name = "password")
-    private String PassWord;
-
-    public User(String userName, String passWord) {
-        UserName = userName;
-        PassWord = passWord;
-    }
+    private String Password;
 
     public User() {
+    }
 
+    public User(String userId, String userName, String password) {
+        this.userId = userId;
+        this.userName = userName;
+        Password = password;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        UserName = userName;
+        this.userName = userName;
     }
 
-    public String getPassWord() {
-        return PassWord;
+    public String getPassword() {
+        return Password;
     }
 
-    public void setPassWord(String passWord) {
-        PassWord = passWord;
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", Password='" + Password + '\'' +
+                '}';
     }
 }

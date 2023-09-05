@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +10,7 @@
 
 <AnchorPane prefHeight="804.0" prefWidth="745.0" style="-fx-background-color: FEFFAC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.UserFormController">
    <children>
-      <AnchorPane layoutX="94.0" layoutY="75.0" prefHeight="676.0" prefWidth="558.0" style="-fx-background-color: white; -fx-background-radius: 30px;">
+      <AnchorPane layoutX="94.0" layoutY="77.0" prefHeight="676.0" prefWidth="558.0" style="-fx-background-color: white; -fx-background-radius: 30px;">
          <children>
             <Text fill="#242525" layoutX="139.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Username &amp; Password">
                <font>
@@ -23,28 +22,36 @@
                   <Image url="@assest/img5.png" />
                </image>
             </ImageView>
-            <Text fill="#232525" layoutX="25.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Username :">
+            <Text fill="#232525" layoutX="10.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Username :">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#232525" layoutX="19.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password :">
+            <Text fill="#232525" layoutX="14.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="new pass word:">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#232525" layoutX="6.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-Enter  Password:" wrappingWidth="181.248046875">
+            <Text fill="#232525" layoutX="6.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="conform pass word :" wrappingWidth="181.248046875">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="txtNewUsername" layoutX="198.0" layoutY="308.0" onAction="#txtUserNameOnAction" prefHeight="31.0" prefWidth="297.0" />
-            <TextField fx:id="txtNewPassword" layoutX="198.0" layoutY="403.0" prefHeight="31.0" prefWidth="297.0" />
-            <TextField fx:id="txtReNewPassWord" layoutX="198.0" layoutY="495.0" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtUserName" layoutX="198.0" layoutY="341.0" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtPass" layoutX="198.0" layoutY="418.0" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtRePass" layoutX="198.0" layoutY="495.0" prefHeight="31.0" prefWidth="297.0" />
             <JFXButton layoutX="391.0" layoutY="602.0" onAction="#btnSaveChangesOnAction" style="-fx-background-color: black; -fx-background-radius: 5px;" text="Save Changes" textFill="#fffafa" />
-            <Label fx:id="lblnewUserName" layoutX="198.0" layoutY="352.0" prefHeight="35.0" prefWidth="341.0" />
-            <Label fx:id="lblnewPassWord" layoutX="198.0" layoutY="449.0" prefHeight="35.0" prefWidth="341.0" />
-            <Label fx:id="lblrenewPassword" layoutX="198.0" layoutY="536.0" prefHeight="35.0" prefWidth="341.0" />
+            <Text fill="#232525" layoutX="27.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtUserId" layoutX="198.0" layoutY="271.0" prefHeight="31.0" prefWidth="297.0" />
+            <Text layoutX="214.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lasini Prabashi" wrappingWidth="129.1044921875">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
       <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="652.0" layoutY="20.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">

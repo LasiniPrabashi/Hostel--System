@@ -3,8 +3,11 @@ package lk.ijse.hibernate.hostel.bo.custom;
 import lk.ijse.hibernate.hostel.bo.SuperBO;
 import lk.ijse.hibernate.hostel.dto.UserDTO;
 
+import java.util.List;
+
 public interface UserBO extends SuperBO {
-    public String save(UserDTO dto);
-    public UserDTO get(String userName) throws Exception;
-    public boolean update(UserDTO dto);
+     boolean saveUser(UserDTO dto);
+     UserDTO getUser(String id) throws Exception;
+     boolean updateUser(UserDTO dto);
+     List<UserDTO> loadAll();
 }

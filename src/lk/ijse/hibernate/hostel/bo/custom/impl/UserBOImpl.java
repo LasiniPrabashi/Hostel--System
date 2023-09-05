@@ -11,61 +11,65 @@ import lk.ijse.hibernate.hostel.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserBOImpl implements UserBO {
     private Session session;
-    private UserDAO userDAO = (UserDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.USER);
+    UserDAO userDAO=(UserDAO) DAOFactory.getDaoFactory ().getDAO (DAOFactory.DAOTypes.USER);
 
     @Override
-    public String save(UserDTO dto) {
+    public boolean saveUser(UserDTO dto) {
+
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         try {
             userDAO.setSession(session);
-            String save = userDAO.save(new User(
+            String id = userDAO.save(new User(
+                    dto.getUserId(),
                     dto.getUserName(),
-                    dto.getPassWord()
+                    dto.getPassword()
             ));
-            transaction.commit ();
-            session.close ();
-
-            return save;
-
+            transaction.commit();
+            session.close();
+            if (id!=null){
+                return true;
+            }
         }catch (Exception e){
             transaction.rollback();
-            session.close();
 
-            return null;
         }
+        return false;
     }
 
     @Override
-    public UserDTO get(String userName) throws Exception {
-
+    public UserDTO getUser(String id) throws Exception {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
 
         userDAO.setSession (session);
-        User user=userDAO.getObject (userName);
+        User u=userDAO.getObject (id);
         session.close ();
         return new UserDTO (
-              user.getUserName(),
-              user.getPassWord()
+                u.getUserId (),
+                u.getUserName (),
+                u.getPassword ()
         );
     }
 
     @Override
-    public boolean update(UserDTO dto) {
+    public boolean updateUser(UserDTO dto) {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
 
         try {
             userDAO.setSession (session);
             userDAO.update (new User (
-                    dto.getUserName(),
-                    dto.getPassWord()
-
-                    ));
+                    dto.getUserId (),
+                    dto.getUserName (),
+                    dto.getPassword ()
+            ));
 
             transaction.commit ();
             session.close ();
@@ -75,5 +79,27 @@ public class UserBOImpl implements UserBO {
         }
         return false;
     }
+
+    @Override
+    public List<UserDTO> loadAll() {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        userDAO.setSession(session);
+        List<User> list = userDAO.loadAll();
+        List<UserDTO> userList = new ArrayList<>();
+
+        for (User u : list) {
+            userList.add(
+                    new UserDTO(
+                            u.getUserId(),
+                            u.getUserName(),
+                            u.getPassword()
+                    ));
+        }
+
+        return userList;
+    }
+
 
 }
