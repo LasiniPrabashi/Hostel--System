@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="921.0" prefWidth="1442.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.LoginFormController">
    <children>
-      <AnchorPane prefHeight="921.0" prefWidth="1442.0" style="-fx-background-color: black;">
+      <AnchorPane prefHeight="921.0" prefWidth="1442.0" style="-fx-background-color: CBB279;">
          <children>
             <ImageView fitHeight="735.0" fitWidth="701.0" layoutX="115.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -44,22 +44,22 @@
                   <Font name="Times New Roman Bold" size="24.0" />
                </font>
             </JFXButton>
-            <Label layoutX="861.0" layoutY="86.0" prefHeight="93.0" prefWidth="338.0" text="WELCOME" textFill="#f5e6e6">
+            <Label layoutX="861.0" layoutY="86.0" prefHeight="93.0" prefWidth="338.0" text="WELCOME" textFill="#1e1e1e">
                <font>
                   <Font name="Times New Roman Bold" size="60.0" />
                </font>
             </Label>
-            <Label layoutX="1115.0" layoutY="192.0" prefHeight="93.0" prefWidth="293.0" text="D24 Hostel " textFill="#f2eded">
+            <Label layoutX="1107.0" layoutY="160.0" prefHeight="93.0" prefWidth="293.0" text="D24 Hostel " textFill="#171717">
                <font>
                   <Font name="Times New Roman Bold" size="50.0" />
                </font>
             </Label>
-            <Label layoutX="880.0" layoutY="436.0" prefHeight="45.0" prefWidth="520.0" text="A Hostel Locate  in Colombo" textFill="#f5f3f3">
+            <Label layoutX="880.0" layoutY="436.0" prefHeight="45.0" prefWidth="520.0" text="A Hostel Locate  in Colombo" textFill="#141414">
                <font>
                   <Font name="Times New Roman Bold" size="42.0" />
                </font>
             </Label>
-            <Text fill="#d7d2d2" layoutX="874.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We believe that hostelling is not just about having a place to say. it's about having fun fun, experienceing different cultures and netting new people, whilst loving and respecting our environment." wrappingWidth="519.9999943375587">
+            <Text fill="#2f2d2d" layoutX="874.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We believe that hostelling is not just about having a place to say. it's about having fun fun, experienceing different cultures and netting new people, whilst loving and respecting our environment." wrappingWidth="519.9999943375587">
                <font>
                   <Font name="Times New Roman Bold" size="22.0" />
                </font>
