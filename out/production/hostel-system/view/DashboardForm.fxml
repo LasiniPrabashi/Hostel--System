@@ -76,7 +76,7 @@
             </AnchorPane>
             <AnchorPane layoutX="1473.0" layoutY="390.0" prefHeight="305.0" prefWidth="273.0" style="-fx-background-color: white; -fx-background-radius: 30px; -fx-border-color: black;">
                <children>
-                  <JFXButton fx:id="roomId1" layoutX="71.0" layoutY="187.0" onAction="#RoomOnAction" prefHeight="31.0" prefWidth="115.0" text="Room">
+                  <JFXButton fx:id="roomId1" layoutX="79.0" layoutY="206.0" onAction="#RoomOnAction" prefHeight="31.0" prefWidth="115.0" text="Room">
                      <font>
                         <Font name="Times New Roman Bold" size="28.0" />
                      </font>
