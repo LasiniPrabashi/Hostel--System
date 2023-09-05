@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="921.0" prefWidth="1442.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.LoginFormController">
    <children>
-      <AnchorPane prefHeight="921.0" prefWidth="1442.0" style="-fx-background-color: CBB279;">
+      <AnchorPane prefHeight="921.0" prefWidth="1473.0" style="-fx-background-color: #dbceb2;">
          <children>
             <ImageView fitHeight="735.0" fitWidth="701.0" layoutX="115.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -64,12 +64,12 @@
                   <Font name="Times New Roman Bold" size="22.0" />
                </font>
             </Text>
-            <JFXPasswordField fx:id="txtPassShow" layoutX="336.0" layoutY="526.0" prefHeight="31.0" prefWidth="259.0" promptText="Password">
+            <JFXPasswordField fx:id="txtPass" layoutX="336.0" layoutY="526.0" prefHeight="31.0" prefWidth="259.0" promptText="Password">
                <font>
                   <Font name="Times New Roman Bold" size="18.0" />
                </font>
             </JFXPasswordField>
-            <JFXTextField fx:id="txtPass" layoutX="336.0" layoutY="527.0" prefHeight="31.0" prefWidth="259.0" />
+            <JFXTextField fx:id="txtPassShow" layoutX="336.0" layoutY="527.0" prefHeight="31.0" prefWidth="259.0" />
          </children>
       </AnchorPane>
    </children>

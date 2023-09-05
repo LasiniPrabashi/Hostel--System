@@ -42,7 +42,7 @@
             <URL value="@assest/css/studentComboBox.css" />
          </stylesheets>
       </JFXComboBox>
-      <JFXButton buttonType="RAISED" layoutX="1224.0" layoutY="334.0" onAction="#onActionSave" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #EBE76C;" text="Save">
+      <JFXButton buttonType="RAISED" layoutX="1224.0" layoutY="334.0" onAction="#onActionSave" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" text="Save">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -58,12 +58,12 @@
             <TableColumn fx:id="colGender" prefWidth="169.0" text="Gender" />
         </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="1404.0" layoutY="334.0" onAction="#onActionUpdate" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #189A2E;" text="Update">
+      <JFXButton buttonType="RAISED" layoutX="1373.0" layoutY="334.0" onAction="#onActionUpdate" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" text="Update">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="1566.0" layoutY="334.0" onAction="#onActionDelete" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #D71313;" text="Delete">
+      <JFXButton buttonType="RAISED" layoutX="1527.0" layoutY="334.0" onAction="#onActionDelete" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" text="Delete">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

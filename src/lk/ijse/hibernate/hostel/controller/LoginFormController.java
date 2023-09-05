@@ -20,8 +20,9 @@ public class LoginFormController implements Initializable {
 
 
     public JFXTextField txtUName;
-    public JFXPasswordField txtPassShow;
-    public JFXTextField txtPass;
+    public JFXPasswordField txtPass;
+    public JFXTextField txtPassShow;
+
 
     private UserBO userBO = (UserBO) BOFactory.getBO (BOFactory.BOTypes.USER);
 

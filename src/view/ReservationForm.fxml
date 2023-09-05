@@ -31,7 +31,7 @@
             <URL value="@assest/css/studentComboBox.css" />
          </stylesheets>
       </JFXComboBox>
-      <JFXButton layoutX="1205.0" layoutY="334.0" onAction="#onActionSaveRes" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #EBE76C;" stylesheets="@assest/css/studentForm.css" text="Save">
+      <JFXButton layoutX="1205.0" layoutY="334.0" onAction="#onActionSaveRes" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" stylesheets="@assest/css/studentForm.css" text="Save">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -46,12 +46,12 @@
             <TableColumn fx:id="colStatus" prefWidth="188.0" text="Status" />
          </columns>
       </TableView>
-      <JFXButton layoutX="1367.0" layoutY="334.0" onAction="#onActionUpdateRes" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #189A2E;" stylesheets="@assest/css/studentForm.css" text="Update">
+      <JFXButton layoutX="1367.0" layoutY="334.0" onAction="#onActionUpdateRes" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" stylesheets="@assest/css/studentForm.css" text="Update">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1526.0" layoutY="334.0" onAction="#onActionDeleteRes" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #D71313;" stylesheets="@assest/css/studentForm.css" text="Delete">
+      <JFXButton layoutX="1526.0" layoutY="334.0" onAction="#onActionDeleteRes" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" stylesheets="@assest/css/studentForm.css" text="Delete">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

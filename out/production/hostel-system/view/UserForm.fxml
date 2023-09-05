@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="804.0" prefWidth="745.0" style="-fx-background-color: FEFFAC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.UserFormController">
+<AnchorPane prefHeight="804.0" prefWidth="745.0" style="-fx-background-color: #dbceb2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.UserFormController">
    <children>
       <AnchorPane layoutX="94.0" layoutY="77.0" prefHeight="676.0" prefWidth="558.0" style="-fx-background-color: white; -fx-background-radius: 30px;">
          <children>
@@ -22,26 +22,26 @@
                   <Image url="@assest/img5.png" />
                </image>
             </ImageView>
-            <Text fill="#232525" layoutX="10.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Username :">
+            <Text fill="#232525" layoutX="25.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Username :">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#232525" layoutX="14.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="new pass word:">
+            <Text fill="#232525" layoutX="29.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="new pass word:">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#232525" layoutX="6.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="conform pass word :" wrappingWidth="181.248046875">
+            <Text fill="#232525" layoutX="19.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="conform pass word :" wrappingWidth="181.248046875">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
             <TextField fx:id="txtUserName" layoutX="198.0" layoutY="341.0" prefHeight="31.0" prefWidth="297.0" />
             <TextField fx:id="txtPass" layoutX="198.0" layoutY="418.0" prefHeight="31.0" prefWidth="297.0" />
-            <TextField fx:id="txtRePass" layoutX="198.0" layoutY="495.0" prefHeight="31.0" prefWidth="297.0" />
+            <TextField fx:id="txtRePass" layoutX="200.0" layoutY="494.0" prefHeight="31.0" prefWidth="297.0" />
             <JFXButton layoutX="391.0" layoutY="602.0" onAction="#btnSaveChangesOnAction" style="-fx-background-color: black; -fx-background-radius: 5px;" text="Save Changes" textFill="#fffafa" />
-            <Text fill="#232525" layoutX="27.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID :">
+            <Text fill="#232525" layoutX="36.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID :">
                <font>
                   <Font size="20.0" />
                </font>
@@ -54,9 +54,9 @@
             </Text>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="652.0" layoutY="20.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="70.0" fitWidth="100.0" layoutX="629.0" layoutY="14.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assest/img4.jpg" />
+            <Image url="@assest/back_img.png" />
          </image>
       </ImageView>
    </children>
