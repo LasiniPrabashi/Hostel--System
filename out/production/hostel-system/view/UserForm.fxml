@@ -47,9 +47,9 @@
                </font>
             </Text>
             <TextField fx:id="txtUserId" layoutX="198.0" layoutY="271.0" prefHeight="31.0" prefWidth="297.0" />
-            <Text layoutX="214.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lasini Prabashi" wrappingWidth="129.1044921875">
+            <Text layoutX="214.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lasini Prabashi" wrappingWidth="143.98438327014446">
                <font>
-                  <Font name="Times New Roman Bold" size="18.0" />
+                  <Font name="Times New Roman Bold" size="20.0" />
                </font>
             </Text>
          </children>

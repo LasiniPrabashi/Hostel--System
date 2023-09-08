@@ -8,74 +8,53 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="921.0" prefWidth="1442.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.LoginFormController">
+<AnchorPane prefHeight="804.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.LoginFormController">
    <children>
-      <AnchorPane prefHeight="921.0" prefWidth="1473.0" style="-fx-background-color: #dbceb2;">
+      <AnchorPane prefHeight="794.0" prefWidth="802.0">
          <children>
-            <ImageView fitHeight="735.0" fitWidth="701.0" layoutX="115.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="814.0" fitWidth="806.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assest/main.png" />
                </image>
             </ImageView>
-            <Label layoutX="285.0" layoutY="357.0" prefHeight="48.0" prefWidth="139.0" text="Login">
+            <Label layoutX="216.0" layoutY="250.0" prefHeight="48.0" prefWidth="139.0" text="Login">
                <font>
                   <Font name="Times New Roman Bold" size="42.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtUName" layoutX="337.0" layoutY="439.0" prefHeight="41.0" prefWidth="259.0" promptText="Username ">
+            <JFXTextField fx:id="txtUName" layoutX="296.0" layoutY="390.0" prefHeight="41.0" prefWidth="259.0" promptText="Username ">
                <font>
                   <Font name="Times New Roman Bold" size="18.0" />
                </font>
             </JFXTextField>
-            <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="285.0" layoutY="439.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="226.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assest/username.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="48.0" fitWidth="41.0" layoutX="285.0" layoutY="521.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="48.0" fitWidth="41.0" layoutX="226.0" layoutY="474.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assest/password.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="390.0" layoutY="605.0" onAction="#LoginOnAction" prefHeight="31.0" prefWidth="151.0" text="Sing In">
+            <JFXButton layoutX="365.0" layoutY="543.0" onAction="#LoginOnAction" prefHeight="31.0" prefWidth="151.0" text="Sing In">
                <font>
                   <Font name="Times New Roman Bold" size="24.0" />
                </font>
             </JFXButton>
-            <Label layoutX="861.0" layoutY="86.0" prefHeight="93.0" prefWidth="338.0" text="WELCOME" textFill="#1e1e1e">
-               <font>
-                  <Font name="Times New Roman Bold" size="60.0" />
-               </font>
-            </Label>
-            <Label layoutX="1107.0" layoutY="160.0" prefHeight="93.0" prefWidth="293.0" text="D24 Hostel " textFill="#171717">
-               <font>
-                  <Font name="Times New Roman Bold" size="50.0" />
-               </font>
-            </Label>
-            <Label layoutX="880.0" layoutY="436.0" prefHeight="45.0" prefWidth="520.0" text="A Hostel Locate  in Colombo" textFill="#141414">
-               <font>
-                  <Font name="Times New Roman Bold" size="42.0" />
-               </font>
-            </Label>
-            <Text fill="#2f2d2d" layoutX="874.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We believe that hostelling is not just about having a place to say. it's about having fun fun, experienceing different cultures and netting new people, whilst loving and respecting our environment." wrappingWidth="519.9999943375587">
-               <font>
-                  <Font name="Times New Roman Bold" size="22.0" />
-               </font>
-            </Text>
-            <JFXPasswordField fx:id="txtPass" layoutX="336.0" layoutY="526.0" prefHeight="31.0" prefWidth="259.0" promptText="Password">
+            <JFXPasswordField fx:id="txtPass" layoutX="296.0" layoutY="474.0" prefHeight="31.0" prefWidth="259.0" promptText="Password">
                <font>
                   <Font name="Times New Roman Bold" size="18.0" />
                </font>
             </JFXPasswordField>
-            <JFXTextField fx:id="txtPassShow" layoutX="336.0" layoutY="527.0" prefHeight="31.0" prefWidth="259.0" />
-            <ImageView fx:id="imgOpenEye" fitHeight="32.0" fitWidth="41.0" layoutX="613.0" layoutY="527.0" onMouseClicked="#openEyeOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+            <JFXTextField fx:id="txtPassShow" layoutX="296.0" layoutY="475.0" prefHeight="31.0" prefWidth="259.0" />
+            <ImageView fx:id="imgOpenEye" fitHeight="32.0" fitWidth="41.0" layoutX="571.0" layoutY="479.0" onMouseClicked="#openEyeOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assest/img6.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imgCloseEye" fitHeight="32.0" fitWidth="41.0" layoutX="613.0" layoutY="527.0" onMouseClicked="#closeEyeOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgCloseEye" fitHeight="32.0" fitWidth="41.0" layoutX="571.0" layoutY="479.0" onMouseClicked="#closeEyeOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assest/icon-hide.png" />
                </image>

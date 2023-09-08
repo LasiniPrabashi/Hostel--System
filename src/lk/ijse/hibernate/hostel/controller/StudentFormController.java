@@ -129,23 +129,23 @@ public class StudentFormController implements Initializable {
         cmbGender.setItems (data);
     }
 
-    public void OnActionMouseClicked(MouseEvent mouseEvent) {
-        int index = tblStudent.getSelectionModel ().getSelectedIndex ();
-        String stId = colstId.getCellData (index).toString ();//select Column value
+//    public void OnActionMouseClicked(MouseEvent mouseEvent) {
+//        int index = tblStudent.getSelectionModel ().getSelectedIndex ();
+//        String stId = colstId.getCellData (index).toString ();//select Column value
+//
+//        try {
+//            StudentDTO dto = studentBO.getStudent (stId);
+//            txtStId.setText (dto.getStId ());
+//            txtName.setText (dto.getStName ());
+//            txtAddress.setText (dto.getAddress ());
+//            txtContact.setText (dto.getContact ());
+//            txtDate.setValue (LocalDate.parse (dto.getDob ()));
+//            cmbGender.setValue (dto.getGender ());
+//        } catch (Exception e) {
+//            System.out.println (e);
+//        }
 
-        try {
-            StudentDTO dto = studentBO.getStudent (stId);
-            txtStId.setText (dto.getStId ());
-            txtName.setText (dto.getStName ());
-            txtAddress.setText (dto.getAddress ());
-            txtContact.setText (dto.getContact ());
-            txtDate.setValue (LocalDate.parse (dto.getDob ()));
-            cmbGender.setValue (dto.getGender ());
-        } catch (Exception e) {
-            System.out.println (e);
-        }
-
-    }
+//    }
 
     public void setTableStudent() {
         colstId.setCellValueFactory (new PropertyValueFactory<>("stId"));
@@ -241,5 +241,22 @@ public class StudentFormController implements Initializable {
 //        Platform.runLater(() -> primaryStage.sizeToScene());
 
         Navigation.switchNavigation("DashboardForm.fxml",mouseEvent);
+    }
+
+    public void OnActionMouseClicked(MouseEvent mouseEvent) {
+        int index = tblStudent.getSelectionModel ().getSelectedIndex ();
+        String stId = colstId.getCellData (index).toString ();//select Column value
+
+        try {
+            StudentDTO dto = studentBO.getStudent (stId);
+            txtStId.setText (dto.getStId ());
+            txtName.setText (dto.getStName ());
+            txtAddress.setText (dto.getAddress ());
+            txtContact.setText (dto.getContact ());
+            txtDate.setValue (LocalDate.parse (dto.getDob ()));
+            cmbGender.setValue (dto.getGender ());
+        } catch (Exception e) {
+            System.out.println (e);
+        }
     }
 }

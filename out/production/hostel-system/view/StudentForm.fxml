@@ -14,61 +14,61 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="904.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.StudentFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="817.0" prefWidth="1492.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostel.controller.StudentFormController">
    <children>
       <JFXTextField fx:id="txtStId" layoutX="74.0" layoutY="167.0" prefHeight="32.0" prefWidth="315.0" promptText="Student Id" unFocusColor="#fff9f9">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtName" layoutX="483.0" layoutY="167.0" prefHeight="32.0" prefWidth="315.0" promptText="Student Name">
+      <JFXTextField fx:id="txtName" layoutX="74.0" layoutY="249.0" prefHeight="32.0" prefWidth="315.0" promptText="Student Name">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAddress" layoutX="876.0" layoutY="167.0" prefHeight="37.0" prefWidth="315.0" promptText="Address">
+      <JFXTextField fx:id="txtAddress" layoutX="74.0" layoutY="344.0" prefHeight="37.0" prefWidth="315.0" promptText="Address">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContact" layoutX="74.0" layoutY="264.0" prefHeight="32.0" prefWidth="315.0" promptText="Contact No">
+      <JFXTextField fx:id="txtContact" layoutX="74.0" layoutY="434.0" prefHeight="37.0" prefWidth="315.0" promptText="Contact No">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox fx:id="cmbGender" layoutX="869.0" layoutY="267.0" prefHeight="31.0" prefWidth="277.0" promptText="Gender" visibleRowCount="1">
+      <JFXComboBox fx:id="cmbGender" layoutX="74.0" layoutY="638.0" prefHeight="31.0" prefWidth="261.0" promptText="Gender" visibleRowCount="1">
          <stylesheets>
             <URL value="@assest/css/studentComboBox.css" />
             <URL value="@assest/css/studentComboBox.css" />
          </stylesheets>
       </JFXComboBox>
-      <JFXButton buttonType="RAISED" layoutX="1224.0" layoutY="334.0" onAction="#onActionSave" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" text="Save">
+      <JFXButton buttonType="RAISED" layoutX="192.0" layoutY="718.0" onAction="#onActionSave" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" text="Save">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXDatePicker fx:id="txtDate" layoutX="476.0" layoutY="267.0" prefHeight="31.0" prefWidth="315.0" promptText="Date Of Birth" />
-      <TableView fx:id="tblStudent" layoutX="104.0" layoutY="324.0" onMouseClicked="#OnActionMouseClicked" prefHeight="560.0" prefWidth="1059.0">
+      <JFXDatePicker fx:id="txtDate" layoutX="74.0" layoutY="531.0" prefHeight="31.0" prefWidth="315.0" promptText="Date Of Birth" />
+      <TableView fx:id="tblStudent" layoutX="554.0" layoutY="135.0" onMouseClicked="#OnActionMouseClicked" prefHeight="548.0" prefWidth="892.0">
         <columns>
-          <TableColumn fx:id="colstId" prefWidth="152.0" text="Student_ID" />
-          <TableColumn fx:id="colStName" prefWidth="177.0" text="Student Name" />
-            <TableColumn fx:id="colAddress" prefWidth="199.0" text="Address" />
-            <TableColumn fx:id="colContact" prefWidth="217.0" text="Contact No" />
-            <TableColumn fx:id="colDob" prefWidth="142.0" text="Date Of Birth" />
-            <TableColumn fx:id="colGender" prefWidth="169.0" text="Gender" />
+          <TableColumn fx:id="colstId" prefWidth="130.0" text="Student_ID" />
+          <TableColumn fx:id="colStName" prefWidth="136.0" text="Student Name" />
+            <TableColumn fx:id="colAddress" prefWidth="168.0" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="174.0" text="Contact No" />
+            <TableColumn fx:id="colDob" prefWidth="146.0" text="Date Of Birth" />
+            <TableColumn fx:id="colGender" prefWidth="136.0" text="Gender" />
         </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="1373.0" layoutY="334.0" onAction="#onActionUpdate" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" text="Update">
+      <JFXButton buttonType="RAISED" layoutX="330.0" layoutY="718.0" onAction="#onActionUpdate" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" text="Update">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="1527.0" layoutY="334.0" onAction="#onActionDelete" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" text="Delete">
+      <JFXButton buttonType="RAISED" layoutX="484.0" layoutY="718.0" onAction="#onActionDelete" prefHeight="37.0" prefWidth="118.0" style="-fx-border-color: Black; -fx-background-color: #DAC0A3;" text="Delete">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <AnchorPane layoutX="-2.0" prefHeight="105.0" prefWidth="1706.0" style="-fx-background-color: CBB279;">
+      <AnchorPane layoutX="-2.0" prefHeight="105.0" prefWidth="1500.0" style="-fx-background-color: CBB279;">
          <children>
             <Label layoutX="85.0" layoutY="20.0" prefHeight="41.0" prefWidth="386.0" text="Student Information" textFill="#1e1e1e">
                <font>
@@ -81,7 +81,7 @@
                   <Image url="@assest/img2.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="69.0" fitWidth="93.0" layoutX="1590.0" layoutY="18.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="69.0" fitWidth="93.0" layoutX="1319.0" layoutY="18.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assest/back_img.png" />
                </image>
